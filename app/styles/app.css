@@ -46,11 +46,6 @@ a {
     border-bottom: 1px solid;
 }
 
-.rr-page-header>.rr-app-title {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
 .rr-app-title>.rr-subtitle {
     font-weight: normal;
 }
@@ -109,7 +104,7 @@ a {
     margin-bottom: 10px;
 }
 
-.rr-band-link>.rr-pointer {
+.rr-band-link > .rr-pointer {
     margin-left: 5px;
     display: none;
 }

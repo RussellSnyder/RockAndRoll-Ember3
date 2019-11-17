@@ -11,23 +11,23 @@
       No {{this.model.name}} songs yet, why don't you <a href="#" {{on "click" this.addSong}}>create one?</a>
     </li>
   {{/each}}
-    <div class="rr-new-label">
-    {{#if this.isAddingSong}}
-      <form class="rr-inline-form" {{on "submit" this.saveSong}}>
-        <Input @type="text" @value={{this.newSongTitle}} class="rr-input" placeholder="New song"
-          data-test-rr="new-song-input" />
-        <button type="submit" class="rr-action-button" disabled={{this.isAddButtonDisabled}}>
-          Add
-        </button>
-        <button class="rr-cancel-icon" {{on "click" this.cancelAddSong}}>
-          {{fa-icon "times"}}
-        </button>
-      </form>
-    {{else}}  
-      <label {{on "click" this.addSong}}>
-        {{fa-icon "plus"}}
-        <span class="ml1">Add new song</span>
-      </label>
-    {{/if}}
-  </div>
 </ul>
+<div class="rr-new-label">
+  {{#if this.isAddingSong}}
+    <form class="rr-inline-form" {{on "submit" this.saveSong}}>
+      <Input @type="text" @value={{this.newSongTitle}} class="rr-input" placeholder="New song"
+        data-test-rr="new-song-input" />
+      <button type="submit" class="rr-action-button" disabled={{this.isAddButtonDisabled}}>
+        Add
+      </button>
+      <button class="rr-cancel-icon" {{on "click" this.cancelAddSong}}>
+        {{fa-icon "times"}}
+      </button>
+    </form>
+  {{else}}  
+    <label {{on "click" this.addSong}}>
+      {{fa-icon "plus"}}
+      <span class="ml1">Add new song</span>
+    </label>
+  {{/if}}
+</div>
