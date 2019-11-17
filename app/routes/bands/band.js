@@ -5,7 +5,6 @@ export default Route.extend({
   router: service(),
 
   model(params) {
-    let bands = this.modelFor('bands');
-    return bands.find(band => band.slug === params.slug); // params.slug is now 'pearl-jam'
+    return this.store.findRecord('band', params.id);
   }
 });
