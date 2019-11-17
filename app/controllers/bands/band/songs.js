@@ -16,7 +16,7 @@ export default Controller.extend({
     this.set('isAddingSong', false);
   }),
 
-saveSong: action(function(event) {
+  saveSong: action(function(event) {
     event.preventDefault();
 
     let newSong = Song.create({ title: this.newSongTitle });
@@ -24,4 +24,7 @@ saveSong: action(function(event) {
     this.set('newSongTitle', '');
   }),
 
+  updateRating: action(function(song, rating) {
+    song.set('rating', song.rating === rating ? 0 : rating);
+  }),
 });
