@@ -1,33 +1,55 @@
+<div class="rr-controls-panel">
+  <div class="rr-sort-panel">
+    <LinkTo class="rr-sort-button" data-test-rr="sort-by-rating-desc" @query={{hash s="ratingDesc"}}>
+      Rating
+      {{fa-icon "angle-down"}}
+    </LinkTo>
+    <LinkTo class="rr-sort-button" data-test-rr="sort-by-rating-asc" @query={{hash s="ratingAsc"}}>
+      Rating
+      {{fa-icon "angle-up"}}
+    </LinkTo>
+    <LinkTo class="rr-sort-button" data-test-rr="sort-by-title-desc" @query={{hash s="titleDesc"}}>
+      Title
+      {{fa-icon "angle-down"}}
+    </LinkTo>
+    <LinkTo class="rr-sort-button" data-test-rr="sort-by-title-asc" @query={{hash s="titleAsc"}}>
+      Title
+      {{fa-icon "angle-up"}}
+    </LinkTo>
+  </div>
+  <div class="rr-search-panel">
+    <Input @type="text" class="rr-input" @value={{this.searchTerm}} data-test-rr="search-box" />
+    <div class="rr-search-icon">{{fa-icon "search"}}</div>
+  </div>
+</div>
 <ul class="rr-list">
-  {{#each this.model.songs as |song|}}
-    <li class="rr-list-item" data-test-rr="song-list-item">
-      {{song.title}} 
-      <StarRating class="fr" @rating={{song.rating}} 
-      @onClick={{fn this.updateRating song}}
-       />
-    </li>
+  {{#each this.sortedSongs as |song|}}
+  <li class="rr-list-item" data-test-rr="song-list-item">
+    {{song.title}}
+    <StarRating class="fr" @rating={{song.rating}} @onClick={{fn this.updateRating song}} />
+  </li>
   {{else}}
-    <li class="tc">
-      No {{this.model.name}} songs yet, why don't you <a href="#" {{on "click" this.addSong}}>create one?</a>
-    </li>
+  <li class="tc">
+    No {{this.model.name}} songs yet, why don't you <a href="#" {{on "click" this.addSong}}>create one?</a>
+  </li>
   {{/each}}
 </ul>
 <div class="rr-new-label">
   {{#if this.isAddingSong}}
-    <form class="rr-inline-form" {{on "submit" this.saveSong}} datatest-rr="new-song-form">
-      <Input @type="text" @value={{this.newSongTitle}} class="rr-input" placeholder="New song"
-        data-test-rr="new-song-input" />
-      <button type="submit" class="rr-action-button" disabled={{this.isAddButtonDisabled}} data-test-rr="new-song-button">
-        Add
-      </button>
-      <button class="rr-cancel-icon" {{on "click" this.cancelAddSong}}>
-        {{fa-icon "times"}}
-      </button>
-    </form>
-  {{else}}  
-    <label {{on "click" this.addSong}}>
-      {{fa-icon "plus"}}
-      <span class="ml1">Add new song</span>
-    </label>
+  <form class="rr-inline-form" {{on "submit" this.saveSong}} datatest-rr="new-song-form">
+    <Input @type="text" @value={{this.newSongTitle}} class="rr-input" placeholder="New song"
+      data-test-rr="new-song-input" />
+    <button type="submit" class="rr-action-button" disabled={{this.isAddButtonDisabled}} data-test-rr="new-song-button">
+      Add
+    </button>
+    <button class="rr-cancel-icon" {{on "click" this.cancelAddSong}}>
+      {{fa-icon "times"}}
+    </button>
+  </form>
+  {{else}}
+  <label {{on "click" this.addSong}}>
+    {{fa-icon "plus"}}
+    <span class="ml1">Add new song</span>
+  </label>
   {{/if}}
 </div>
