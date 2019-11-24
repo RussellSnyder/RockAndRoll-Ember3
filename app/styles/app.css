@@ -2,6 +2,7 @@
     --blue: #357edd;
     --dark-blue: #00449e;
     --light-blue: #96ccff;
+    --light-red: #ff725c;
     --mid-grey: #555;
     --near-white: #f4f4f4;
     --input-color: var(--mid-grey);
@@ -11,6 +12,7 @@
     --button-disabled-color: var(--light-blue);
     --bright-yellow: #ffda00;
     --navitem-link-color: var(--bright-yellow);
+    --error-color: var(--light-red);
 }
 
 a {
@@ -206,4 +208,28 @@ a {
     padding-right: .5rem;
     margin-left: -5px;
     border-width: 0;
+}
+
+.rr-loading-pane {
+    margin: 25px auto;
+}
+
+.rr-loading-message {
+    text-align: center;
+}
+
+.rr-spinner {
+    background: url('/images/spinner.svg') no-repeat;
+    height: 31px;
+    width: 31px;
+    margin: 0 auto;
+}
+
+.rr-error-pane {
+    margin: 25px auto;
+}
+
+.rr-error-message {
+    text-align: center;
+    color: var(--error-color);
 }
